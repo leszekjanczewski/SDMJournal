@@ -22,7 +22,34 @@ public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-    @Override
+    /* test with thymeleaf - future
+    //producent widoków Thymeleaf
+    @Bean
+    public ViewResolver viewResolver(SpringTemplateEngine templateEngine) {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(templateEngine);
+        return viewResolver;
+    }
+
+    //silnik Thymeleaf
+    @Bean
+    public TemplateEngine templateEngine(TemplateResolver templateResolver) {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver);
+        return templateEngine;
+    }
+
+    //producent szablonów
+    @Bean
+    public TemplateResolver templateResolver() {
+        TemplateResolver templateResolver = new ServletContextTemplateResolver();
+        templateResolver.setPrefix("/WEB-INF/templates");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML5");
+        return templateResolver;
+    }*/
+
+@Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
