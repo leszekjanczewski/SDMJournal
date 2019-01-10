@@ -1,31 +1,34 @@
 package pl.leszekjanczewski.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-//TODO - persistance
 @Entity(name = "users")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    Long userId;
+    private Long userId;
 
     @Column(name = "first_name")
-    String firstName;
+    private String firstName;
 
     @Column(name = "last_name")
-    String lastName;
+    private String lastName;
 
     @Column
-    String login;
+    private String login;
 
     @Column
-    String password;
+    private String password;
 
     @Column
-    Boolean shift;
+    private Boolean shift;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Role> roles = new HashSet<>();
 
     public Long getUserId() {
         return userId;
@@ -73,5 +76,13 @@ public class User {
 
     public void setShift(Boolean shift) {
         this.shift = shift;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
