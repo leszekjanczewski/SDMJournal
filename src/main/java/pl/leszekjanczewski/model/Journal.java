@@ -2,8 +2,6 @@ package pl.leszekjanczewski.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity(name = "journals")
 public class Journal {
@@ -16,15 +14,25 @@ public class Journal {
     @Column
     private String content;
 
-    @Column
+    @Column(name = "create_time")
     private Date created;
 
-    @Column
+    @Column(name = "update_time")
     private Date updated;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @PrePersist
+    public void setCreateTime() {
+        this.created = new Date();
+    }
+
+    @PreUpdate
+    public void setUpdateTime() {
+        this.updated = new Date();
+    }
 
     public Long getJournalId() {
         return journalId;
