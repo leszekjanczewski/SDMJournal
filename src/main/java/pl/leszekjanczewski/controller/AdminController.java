@@ -17,6 +17,6 @@ public class AdminController {
     @GetMapping
     @ResponseBody
     public String userAddForm() {
-        return "Strona administratora ąłźć";
+        return "home";
     }
 }

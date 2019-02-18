@@ -11,10 +11,10 @@ import javax.servlet.ServletRegistration;
 public class SdmJournalAppInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext annotationConfigWebApplicationContext = new AnnotationConfigWebApplicationContext();
-        annotationConfigWebApplicationContext.register(SdmJournalAppConfig.class);
-        annotationConfigWebApplicationContext.setServletContext(servletContext);
-        ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("dispatcher", new DispatcherServlet(annotationConfigWebApplicationContext));
+        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.register(SdmJournalAppConfig.class);
+        context.setServletContext(servletContext);
+        ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
         servletRegistration.setLoadOnStartup(1);
         servletRegistration.addMapping("/");
     }
