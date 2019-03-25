@@ -10,6 +10,7 @@
     ">
 </head>
 <body>
+
 <div class="container-fluid bg-info" style="color: aliceblue">
     <div class="row">
         <div class="col-md-3">
@@ -27,56 +28,53 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-1">
-            <img class="img-fluid my-2" style="height: 90px; width: 90px" src="<c:url value="/resources/images/logo.png"/>"
-                 alt="Państwowe Ratownictwo Medyczne"/>
-        </div>
-        <div class="col-lg-3 my-2">
-            <h1 style="color: blue;">SDM Dziennik</h1>
-        </div>
-        <div class="col-lg-8 my-2">
-            <form class="form-inline" action="/login">
-                <%--<label for="user-name-label">Użytkownik</label>--%>
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon">
-                    <i class="fa fa-user"></i>
-                    </span>
-                    <input class="form-control" type="text" name="userName" placeholder="takie jak do SWD">
+
+<div class="row">
+    <div class="col-lg-1">
+        <img class="img-fluid my-2" style="height: 90px; width: 90px"
+             src="<c:url value="/resources/images/logo.png"/>"
+             alt="Państwowe Ratownictwo Medyczne"/>
+    </div>
+    <div class="col-lg-3 my-2">
+        <h1 style="color: blue;">SDM Dziennik</h1>
+    </div>
+    <div class="col-lg-8 my-2">
+        <form:form method="post" modelAttribute="user" class="form-inline" action="/login">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                        </span>
                 </div>
-                <div class="input-group input-group-lg">
-                        <span class="input-group-addon">
+                <form:input path="login" class="form-control" type="text" name="login" placeholder="takie jak do SWD">
+            </div>
+            <%--<label for="user-name-label">Użytkownik</label>--%>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text">
                             <i class="fa fa-lock"></i>
                         </span>
-                    <input class="form-control" type="password" name="userPassword" placeholder="hasło">
                 </div>
-                <button class="btn btn-primary" type="button">Zaloguj</button>
-            </form>
-        </div>
+                <form:password path="password" class="form-control" type="password" name="userPassword" placeholder="hasło">
+            </div>
+            <button class="btn btn-primary" type="button">Zaloguj</button>
+        </form:form>
     </div>
 </div>
-<div class="row">
-    <div class="input-group input-group-lg">
-  <span class="input-group-addon">
-    <i class="fa fa-envelope"></i>
-  </span>
-        <input class="form-control" type="text" placeholder="Email address">
-    </div>
-    <div class="input-group input-group-lg">
-  <span class="input-group-addon">
-    <i class="fa fa-lock"></i>
-  </span>
-        <input class="form-control" type="password" placeholder="Password">
-    </div>
-</div>
-<div class="row">ROW 3</div>
 
-<h1 class="">SDM Dziennik</h1>
-<%
-    out.println("Your IP address is " + request.getRemoteHost());
-%>
-<a href="<c:url value="/login"/>">Login</a>
+<%-- FOOTER START --%>
+<footer class="footer text-center fixed-bottom mb-2">
+    <p class="text-muted">
+        <small>&copy; ROBO-US Leszek Janczewski</small>
+    </p>
+    <p class="text-muted">
+        <small>Terms &amp;Conditions</small>
+    </p>
+    <p class="text-muted">
+        <small>O nas</small>
+    </p>
+</footer>
+<%-- FOOTER END --%>
 
 <!-- for bootstrap - start -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
