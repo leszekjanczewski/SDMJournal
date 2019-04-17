@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
@@ -6,15 +6,14 @@
     <title>SDM Dziennik</title>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/font-awesome.min.css"/>">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    ">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 </head>
 <body>
 
 <div class="container-fluid bg-info" style="color: aliceblue">
     <div class="row">
         <div class="col-md-3">
-            <%= (new java.util.Date()).toLocaleString()%>
+            <%= (new java.util.Date()).toString()%>
         </div>
         <div class="col-md-3">
             <%
@@ -39,7 +38,7 @@
         <h1 style="color: blue;">SDM Dziennik</h1>
     </div>
     <div class="col-lg-8 my-2">
-        <form:form method="post" modelAttribute="user" class="form-inline" action="/login">
+        <%--<form:form method="post" modelAttribute="user" class="form-inline" action="/login">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                         <span class="input-group-text">
@@ -48,7 +47,7 @@
                 </div>
                 <form:input path="login" class="form-control" type="text" name="login" placeholder="takie jak do SWD">
             </div>
-            <%--<label for="user-name-label">Użytkownik</label>--%>
+            &lt;%&ndash;<label for="user-name-label">Użytkownik</label>&ndash;%&gt;
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                         <span class="input-group-text">
@@ -58,7 +57,7 @@
                 <form:password path="password" class="form-control" type="password" name="userPassword" placeholder="hasło">
             </div>
             <button class="btn btn-primary" type="button">Zaloguj</button>
-        </form:form>
+        </form:form>--%>
     </div>
 </div>
 
@@ -76,10 +75,10 @@
 </footer>
 <%-- FOOTER END --%>
 
-<!-- for bootstrap - start -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- for bootstrap v4.3.1 - start -->
+<script src="<c:url value="/resources/js/jquery-3.3.1.slim.min.js"/>"></script>
+<script src="<c:url value="/resources/js/popper.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <!-- for bootstrap - end -->
 </body>
 </html>
