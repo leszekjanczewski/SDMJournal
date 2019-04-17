@@ -17,9 +17,8 @@ public class HomeController {
     }
 
     @GetMapping(value = "/login", produces = "text/html; charset=UTF-8")
-    @ResponseBody
     public String login() {
-        return "<h1>Tytuł</h1>";
+        return "login";
     }
 
     /*@PostMapping("/login")
