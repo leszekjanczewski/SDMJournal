@@ -1,7 +1,7 @@
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="<c:url value="/resources/images/favicon.ico"/>">
@@ -16,7 +16,7 @@
 <nav class="navbar navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <img class="navbar-left img-fluid my-2" style="height: 90px; width: 90px"
+            <img class="navbar-left" style="height: 1em; width: 1em"
                  src="<c:url value="/resources/images/logo.png"/>"
                  alt="Państwowe Ratownictwo Medyczne"/>
             <a class="navbar-brand" href="#">DM Dziennik</a>
@@ -33,32 +33,26 @@
             </p>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-brand navbar-form navbar-right">
+            <form:form class="navbar-brand navbar-form navbar-right">
                 <div class="form-group">
                     <input type="text" placeholder="Email" class="form-control">
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-warning">Sign in</button>
-            </form>
+                <button type="submit" class="btn btn-success">Zaloguj się</button>
+            </form:form>
         </div><!--/.navbar-collapse -->
     </div>
-    <hr>
 </nav>
 
 <%-- Main content --%>
-<div class="container">
+<div class="container jumbotron">
 
 </div>
 
 <%-- FOOTER START --%>
-<footer class="footer text-center fixed-bottom mb-2">
-    <hr>
-    <p class="text-muted">
-        <small>&copy;ROBO-US Leszek Janczewski</small>
-    </p>
-</footer>
+<%@include file="../templates/footer.jspf"%>
 <%-- FOOTER END --%>
 
 <!-- for bootstrap v4.3.1 - start -->

@@ -1,0 +1,5 @@
+    <footer class="footer text-center fixed-bottom mb-2">
+        <p class="text-muted">
+            <small>&copy;ROBO-US Leszek Janczewski</small>
+        </p>
+    </footer>
