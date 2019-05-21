@@ -1,6 +1,9 @@
 package pl.leszekjanczewski.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,32 +13,48 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long userId;
+    private Long id;
 
-    @Column(name = "first_name")
+    @Column(name = "name")
+    @NotEmpty(message = "*Proszę wprowadzić imię")
     private String firstName;
 
     @Column(name = "last_name")
+    @NotEmpty(message = "*Proszę wprowadzić nazwisko")
     private String lastName;
 
     @Column
+    @NotEmpty(message = "*Proszę wprowadzić login")
     private String login;
 
     @Column
+    @Length(min = 5, message = "*Hasło musi mieć conajmniej 5 znaków")
+    @NotEmpty(message = "*Proszę wprowadzić hasło")
     private String password;
 
     @Column
     private Boolean shift;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany
     private Set<Role> roles = new HashSet<>();
 
-    public Long getUserId() {
-        return userId;
+    public User() {
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public User(@NotEmpty(message = "*Proszę wprowadzić imię") String firstName, @NotEmpty(message = "*Proszę wprowadzić nazwisko") String lastName, @NotEmpty(message = "*Proszę wprowadzić login") String login, @NotEmpty(message = "*Proszę wprowadzić hasło") String password, Boolean shift) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.shift = shift;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

@@ -4,26 +4,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.resource.PathResourceResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import javax.persistence.EntityManagerFactory;
 import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "pl.leszekjanczewski")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "pl.leszekjanczewski.repository")
+@EnableJpaRepositories(basePackages = "pl.leszekjanczewski")
 public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -33,6 +33,21 @@ public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry handlerRegistry) {
+        handlerRegistry
+                .addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/**")
+                .setCachePeriod(3600)
+                .resourceChain(true)
+                .addResolver(new PathResourceResolver());
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
     }
 
     @Bean(name = "localeResolver")
@@ -49,9 +64,4 @@ public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
         return emfb;
     }
 
-
-   @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
 }

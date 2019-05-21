@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <link rel="icon" href="<c:url value="/resources/images/favicon.ico"/>">
     <title>DM Dziennik</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
-    <link rel="stylesheet" href="<c:url value="/resources/css/jumbotron.css"/>">
+    <link rel="stylesheet" href="<c:url value="../../resources/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="../../resources/css/font-awesome.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="../../resources/css/bootstrap.min.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="../../resources/css/jumbotron.css"/>">
 </head>
 
 <body>

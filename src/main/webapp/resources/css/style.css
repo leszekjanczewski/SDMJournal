@@ -1,0 +1,15 @@
+label.error {
+    color: red;
+}
+
+input.error {
+    background-color: #ffcccc;
+}
+
+footer p {
+    display: inline;
+}
+
+footer a {
+    color: inherit ;
+}
