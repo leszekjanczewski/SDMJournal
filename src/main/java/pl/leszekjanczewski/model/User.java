@@ -1,9 +1,7 @@
 package pl.leszekjanczewski.model;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,20 +14,20 @@ public class User {
     private Long id;
 
     @Column(name = "name")
-    @NotEmpty(message = "*Proszę wprowadzić imię")
+    @NotNull(message = "*Proszę wprowadzić imię")
     private String firstName;
 
     @Column(name = "last_name")
-    @NotEmpty(message = "*Proszę wprowadzić nazwisko")
+    @NotNull(message = "*Proszę wprowadzić nazwisko")
     private String lastName;
 
     @Column
-    @NotEmpty(message = "*Proszę wprowadzić login")
+    @NotNull(message = "*Proszę wprowadzić login")
     private String login;
 
     @Column
-    @Length(min = 5, message = "*Hasło musi mieć conajmniej 5 znaków")
-    @NotEmpty(message = "*Proszę wprowadzić hasło")
+    @Size(min = 5, message = "*Hasło musi mieć conajmniej 5 znaków")
+    @NotNull(message = "*Proszę wprowadzić hasło")
     private String password;
 
     @Column
@@ -41,7 +39,7 @@ public class User {
     public User() {
     }
 
-    public User(@NotEmpty(message = "*Proszę wprowadzić imię") String firstName, @NotEmpty(message = "*Proszę wprowadzić nazwisko") String lastName, @NotEmpty(message = "*Proszę wprowadzić login") String login, @NotEmpty(message = "*Proszę wprowadzić hasło") String password, Boolean shift) {
+    public User(@NotNull(message = "*Proszę wprowadzić imię") String firstName, @NotNull(message = "*Proszę wprowadzić nazwisko") String lastName, @NotNull(message = "*Proszę wprowadzić login") String login, @NotNull(message = "*Proszę wprowadzić hasło") String password, Boolean shift) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.login = login;

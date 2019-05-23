@@ -21,7 +21,7 @@ import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "pl.leszekjanczewski")
+@ComponentScan(basePackages = "pl.leszekjanczewski.*")
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "pl.leszekjanczewski")
 public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
@@ -39,7 +39,7 @@ public class SdmJournalAppConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry handlerRegistry) {
         handlerRegistry
                 .addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/**")
+                .addResourceLocations("/resources/")
                 .setCachePeriod(3600)
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());
