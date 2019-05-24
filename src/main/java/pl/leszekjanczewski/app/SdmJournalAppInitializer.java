@@ -27,5 +27,9 @@ public class SdmJournalAppInitializer implements WebApplicationInitializer {
         return context;
     }
 
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[] {SdmJournalAppSecurityConfig.class};
+    }
+
 }
 

@@ -23,11 +23,11 @@ public class User {
     @NotNull(message = "*Proszę wprowadzić nazwisko")
     private String lastName;
 
-    @Column
+    @Column(name = "login")
     @NotNull(message = "*Proszę wprowadzić login")
     private String login;
 
-    @Column
+    @Column(name = "password")
     @Size(min = 5, message = "*Hasło musi mieć conajmniej 5 znaków")
     @NotNull(message = "*Proszę wprowadzić hasło")
     private String password;

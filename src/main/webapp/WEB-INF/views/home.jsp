@@ -33,12 +33,12 @@
             </p>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form:form class="navbar-brand navbar-form navbar-right">
+            <form:form class="navbar-brand navbar-form navbar-right" action="">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" name="login" placeholder="Login" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" name="password" placeholder="Hasło" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-success">Zaloguj się</button>
             </form:form>
