@@ -13,9 +13,9 @@ public class SdmJournalAppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password("user").roles("USER")
+                .withUser("user").password("user").authorities("ROLE_USER")
                 .and()
-                .withUser("admin").password("admin").roles("ADMIN");
+                .withUser("admin").password("admin").authorities("ROLE_ADMIN");
     }
 
     @Override

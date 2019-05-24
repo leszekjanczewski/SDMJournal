@@ -1,5 +1,7 @@
 package pl.leszekjanczewski.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.HashSet;
@@ -30,7 +32,8 @@ public class User {
     @NotNull(message = "*Proszę wprowadzić hasło")
     private String password;
 
-    @Column
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    @Column(name = "shift")
     private Boolean shift;
 
     @ManyToMany

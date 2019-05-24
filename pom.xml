@@ -65,6 +65,7 @@
             <artifactId>validation-api</artifactId>
             <version>1.1.0.Final</version>
         </dependency>
+        <!--START HIBERNATE AND DRIVER-->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -77,6 +78,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.15</version>
         </dependency>
+        <!--STOP HIBERNATE AND DRIVER-->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -94,7 +96,7 @@
             <artifactId>javax.el-api</artifactId>
             <version>3.0.0</version>
         </dependency>
-        <!--SECURITY-->
+        <!--SECURITY START-->
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -119,5 +121,6 @@
             <artifactId>spring-security-config</artifactId>
             <version>${spring-security.version}</version>
         </dependency>
+        <!--SECURITY STOP-->
     </dependencies>
 </project>
